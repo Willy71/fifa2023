@@ -3,27 +3,6 @@ import pandas as pd
 import webbrowser
 from datetime import datetime
 
-page_bg_img = f"""
-<style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://i.postimg.cc/ncq85zgH/background.jpg");
-background-size: 180%;
-background-position: top left;
-background-repeat: repeat;
-background-attachment: local;
-}}
-
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
-}}
-
-[data-testid="stToolbar"] {{
-right: 2rem;
-}}
-</style>
-"""
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
 if "data" not in st.session_state:
     df_data = pd.read_csv("CLEAN_FIFA23_official_data.csv", index_col=0)
     df_data = df_data[df_data["Contract Valid Until"] >= datetime.today().year]
